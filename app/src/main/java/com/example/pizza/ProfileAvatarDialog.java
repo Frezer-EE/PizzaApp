@@ -2,17 +2,12 @@ package com.example.pizza;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-
-import java.io.IOException;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -22,12 +17,6 @@ public class ProfileAvatarDialog extends DialogFragment {
 
     private static final int REQUEST_CODE_CAMERA = 0;
     private static final int REQUEST_CODE_GALLERY = 1;
-    private int requestCode = -1;
-    private int resultCode = -1000;
-
-    public int getRequest() {
-        return requestCode;
-    }
 
     @NonNull
     @Override
@@ -51,7 +40,6 @@ public class ProfileAvatarDialog extends DialogFragment {
             public void onClick(View view) {
                 Intent intentCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 startActivityForResult(intentCamera, REQUEST_CODE_CAMERA);
-                requestCode = REQUEST_CODE_CAMERA;
                 getDialog().cancel();
             }
         });
@@ -62,7 +50,6 @@ public class ProfileAvatarDialog extends DialogFragment {
                 Intent galleryIntent = new Intent(Intent.ACTION_PICK);
                 galleryIntent.setType("image/*");
                 startActivityForResult(galleryIntent, REQUEST_CODE_GALLERY);
-                requestCode = REQUEST_CODE_GALLERY;
                 getDialog().cancel();
             }
         });

@@ -18,8 +18,8 @@ public class ProfileActivity extends AppCompatActivity {
 
     ImageView profileImage;
     private ProfileAvatarDialog profileAvatarDialog;
-//    private static final int REQUEST_CODE_CAMERA = 0;
-//    private static final int REQUEST_CODE_GALLERY = 1;
+    private static final int REQUEST_CODE_CAMERA = 0;
+    private static final int REQUEST_CODE_GALLERY = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,23 +39,19 @@ public class ProfileActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    public void onClick(View view) {
-//        Intent intentCamera = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//        startActivityForResult(intentCamera, REQUEST_CODE_CAMERA);
-//    }
-
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         Bitmap avatarImage;
+        final int unmaskedRequestCode = requestCode & 0x0000ffff;
 
-        Toast.makeText(this, String.valueOf(profileAvatarDialog.getRequest()), Toast.LENGTH_LONG).show();
+//        Toast.makeText(this, String.valueOf(profileAvatarDialog.getRequest()), Toast.LENGTH_LONG).show();
 
-        if (requestCode == profileAvatarDialog.getRequest() && resultCode == RESULT_OK) {
+        if (unmaskedRequestCode == REQUEST_CODE_CAMERA && resultCode == RESULT_OK) {
             avatarImage = (Bitmap) data.getExtras().get("data");
             profileImage.setImageBitmap(avatarImage);
         }
-        if (requestCode == profileAvatarDialog.getRequest() && resultCode == RESULT_OK) {
+        if (unmaskedRequestCode == REQUEST_CODE_GALLERY && resultCode == RESULT_OK) {
             try {
                 avatarImage = MediaStore.Images.Media.getBitmap(getContentResolver(), data.getData());
                 profileImage.setImageBitmap(avatarImage);
