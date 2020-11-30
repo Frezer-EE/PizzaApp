@@ -13,10 +13,11 @@
         android:orientation="horizontal">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/profileImageView"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_margin="10dp"
+            android:onClick="onClick"
             app:srcCompat="@drawable/profile_user" />
 
         <LinearLayout
@@ -46,10 +47,17 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/buttonEMailChange"
+        android:id="@+id/button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
+        android:onClick="onAvatarChangeClick"
+        android:text="Avatar change" />
+
+    <Button
+        android:id="@+id/buttonEMailChange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:onClick="eMailChange"
         android:text="E-Mail change" />
 
@@ -64,6 +72,7 @@
         android:id="@+id/buttonExit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:backgroundTint="#DF3B3B"
         android:onClick="Exit"
         android:text="Exit" />

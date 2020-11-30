@@ -46,7 +46,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
                 new MarkerSettings("logo_kiwi", "Kiwi pizza", "Hot and tasty",
                         56.837120, 60.597115));
         markerSettingsList.add(
-                new MarkerSettings("logo_pizza", "Papa Joe", "Pizza from papa Joe",
+                new MarkerSettings("logo_dad", "Papa Joe", "Pizza from papa Joe",
                         56.838026, 60.597115));
 //        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
 //                .findFragmentById(R.id.map);

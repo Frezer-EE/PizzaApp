@@ -26,7 +26,7 @@ public class AuthorizationActivity extends AppCompatActivity {
 
         if (!myLogin.equals("") && !myPassword.equals("")) {
             if (myLogin.equals("admin") && myPassword.equals("admin")) {
-                Intent intent = new Intent(AuthorizationActivity.this, MenuActivity.class);
+                Intent intent = new Intent(AuthorizationActivity.this, BottomNavigationActivity.class);
                 startActivity(intent);
             }
             else {

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".BottomSheetActivity">
+
+    <include layout="@layout/activity_maps"/>
+    <include layout="@layout/bottom_sheet"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/up_arrow"
+        app:layout_anchor="@+id/bottom_sheet"
+        app:layout_anchorGravity="top|center"
+        app:maxImageSize="55dp"/>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
