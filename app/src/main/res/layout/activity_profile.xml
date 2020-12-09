@@ -4,8 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:orientation="vertical"
     tools:context=".ProfileActivity">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:onClick="onAvatarChangeClick"
+        android:text="Avatar change" />
+
+    <Button
+        android:id="@+id/buttonEMailChange"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="eMailChange"
+        android:text="E-Mail change" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="PasswordChange"
+        android:text="Password Change" />
+
+    <Button
+        android:id="@+id/buttonExit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#DF3B3B"
+        android:onClick="Exit"
+        android:text="Exit" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -44,35 +76,4 @@
         </LinearLayout>
 
     </LinearLayout>
-
-    <Button
-        android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:onClick="onAvatarChangeClick"
-        android:text="Avatar change" />
-
-    <Button
-        android:id="@+id/buttonEMailChange"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="eMailChange"
-        android:text="E-Mail change" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:onClick="PasswordChange"
-        android:text="Password Change" />
-
-    <Button
-        android:id="@+id/buttonExit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:backgroundTint="#DF3B3B"
-        android:onClick="Exit"
-        android:text="Exit" />
 </LinearLayout>

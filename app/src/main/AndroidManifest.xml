@@ -27,15 +27,17 @@
         <activity android:name=".BottomNavigationActivity">
         </activity>
         <activity android:name=".ProfileActivity">
+
+        </activity>
+        <activity android:name=".MenuActivity"></activity>
+        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".AuthorizationActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MenuActivity"></activity>
-        <activity android:name=".RegistrationActivity" />
-        <activity android:name=".AuthorizationActivity" />
-        <activity android:name=".MainActivity" />
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
