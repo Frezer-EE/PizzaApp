@@ -8,6 +8,7 @@ import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -15,25 +16,38 @@ import android.widget.Toast;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    EditText regLogin, regPassword, regRepeatPassword, regEMail;
+    EditText regLogin, regName, regPassword, regRepeatPassword, regEMail, regPhoneNumber;
     IRetrofit2 iRetrofit2;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
         regLogin = findViewById(R.id.editTextRegLogin);
+        regName = findViewById(R.id.editTextName);
         regPassword = findViewById(R.id.editTextRegPass);
         regRepeatPassword = findViewById(R.id.editTextRegPassRepeat);
         regEMail = findViewById(R.id.editTextRegEMail);
+        regPhoneNumber = findViewById(R.id.phone_input);
         iRetrofit2 = RetrofitApiBuilder.getInterface();
+        sharedPreferences = getSharedPreferences("main", MODE_PRIVATE);
     }
 
     public void toMainMenuActivity(View view) {
         String strRegLogin = regLogin.getText().toString();
+        String strRegName = regName.getText().toString();
         String strRegPassword = regPassword.getText().toString();
         String strRegRepeatPassword = regRepeatPassword.getText().toString();
         String strRegEMail = regEMail.getText().toString();
+        String strPhoneNumber = regPhoneNumber.getText().toString();
+
+        editor = sharedPreferences.edit();
+        editor.putString("user_name", strRegName);
+        editor.putString("user_email", strRegEMail);
+        editor.putString("user_phone_number", strPhoneNumber);
+        editor.apply();
 
         if (!strRegLogin.equals("") && !strRegPassword.equals("") && !strRegEMail.equals("")) {
             if (strRegPassword.equals(strRegRepeatPassword)) {

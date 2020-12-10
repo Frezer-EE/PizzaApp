@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -19,10 +20,10 @@
 
     <EditText
         android:id="@+id/editTextRegLogin"
-        android:layout_marginTop="50dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Login"
@@ -30,40 +31,66 @@
         tools:layout_editor_absoluteY="255dp" />
 
     <EditText
-        android:id="@+id/editTextRegPass"
-        android:layout_marginTop="30dp"
+        android:id="@+id/editTextName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:text="Name" />
+
+    <EditText
+        android:id="@+id/editTextRegPass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:ems="10"
         android:hint="Password"
+        android:inputType="textPersonName"
         tools:layout_editor_absoluteX="105dp"
         tools:layout_editor_absoluteY="327dp" />
 
     <EditText
         android:id="@+id/editTextRegPassRepeat"
-        android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="Repeat Password"
+        android:inputType="textPersonName"
         tools:layout_editor_absoluteX="105dp"
         tools:layout_editor_absoluteY="399dp" />
 
     <EditText
         android:id="@+id/editTextRegEMail"
-        android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="E-Mail"
         tools:layout_editor_absoluteX="105dp"
         tools:layout_editor_absoluteY="471dp" />
+
+    compile 'ru.egslava:MaskedEditText:1.0.5'
+
+    <br.com.sapereaude.maskedEditText.MaskedEditText
+        android:id="@+id/phone_input"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:inputType="phone"
+        android:text="Phone number"
+        android:typeface="monospace"
+        app:allowed_chars="1234567890"
+        app:keep_hint="true"
+        app:mask="+7(###)###-##-##" />
+
 
     <Button
         android:id="@+id/buttonRegistration"

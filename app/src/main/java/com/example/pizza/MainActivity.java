@@ -19,10 +19,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         constraintLayoutMain = findViewById(R.id.splash_screen);
         animationDrawable = (AnimationDrawable) constraintLayoutMain.getBackground();
-        animationDrawable.setEnterFadeDuration(0);
-        animationDrawable.setExitFadeDuration(4000);
+        animationDrawable.setEnterFadeDuration(1500);
+        animationDrawable.setExitFadeDuration(3000);
         animationDrawable.start();
-        new CountDownTimer(8000, 1000) {
+        new CountDownTimer(9000, 1000) {
             @Override
             public void onTick(long l) {
             }

@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -17,6 +19,9 @@ import java.io.IOException;
 public class ProfileActivity extends AppCompatActivity {
 
     ImageView profileImage;
+    TextView userName, userEmail, userPhone;
+    SharedPreferences sharedPreferences;
+
     private ProfileAvatarDialog profileAvatarDialog;
     private static final int REQUEST_CODE_CAMERA = 0;
     private static final int REQUEST_CODE_GALLERY = 1;
@@ -26,6 +31,15 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         profileImage = findViewById(R.id.profileImageView);
+        userName = findViewById(R.id.textUserName);
+        userEmail = findViewById(R.id.textUserEmail);
+        userPhone = findViewById(R.id.textUserPhoneNumber);
+
+        sharedPreferences = getSharedPreferences("main", MODE_PRIVATE);
+        userName.setText(sharedPreferences.getString("user_name", null));
+        userEmail.setText(sharedPreferences.getString("user_email", null));
+        userPhone.setText(sharedPreferences.getString("user_phone_number", null));
+
     }
 
     public void eMailChange(View view) {

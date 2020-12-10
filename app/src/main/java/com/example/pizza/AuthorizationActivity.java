@@ -6,8 +6,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -15,6 +17,9 @@ public class AuthorizationActivity extends AppCompatActivity {
 
     EditText login, password;
     IRetrofit2 iRetrofit2;
+    SharedPreferences sharedPreferences;
+    CheckBox checkBox;
+    SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +28,32 @@ public class AuthorizationActivity extends AppCompatActivity {
         login = findViewById(R.id.editTextLogin);
         password = findViewById(R.id.editTextPassword);
         iRetrofit2 = RetrofitApiBuilder.getInterface();
+        checkBox = findViewById(R.id.checkBox);
+        sharedPreferences = getSharedPreferences("main", MODE_PRIVATE);
+        Boolean save = sharedPreferences.getBoolean("save", false);
+        if (save) {
+            Intent intent = new Intent(AuthorizationActivity.this, BottomNavigationActivity.class);
+            startActivity(intent);
+        }
     }
 
     public void signing(View view) {
         String myLogin = login.getText().toString();
         String myPassword = password.getText().toString();
+        editor = sharedPreferences.edit();
+        editor.putString("name", myLogin);
+        editor.apply();
+
+        if (checkBox.isChecked()) {
+            editor = sharedPreferences.edit();
+            editor.putBoolean("save", true);
+            editor.apply();
+        }
+        else {
+            editor = sharedPreferences.edit();
+            editor.putBoolean("save", false);
+            editor.apply();
+        }
 
         if (!myLogin.equals("") && !myPassword.equals("")) {
             Call<AuthResponse> authResponseCall = iRetrofit2.authorizationUser(myLogin, myPassword);
